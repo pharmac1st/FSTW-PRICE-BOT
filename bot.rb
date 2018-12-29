@@ -4,7 +4,7 @@ require_relative "price_listing"
 require_relative "upload.rb"
 require "open-uri"
 
-bot = Discordrb::Bot.new token: 'NTI0MDI0MDAzNjIzMzg3MTU3.Dwhwyw.jvu3fKqRB4qcCnngegj7iUScu5E'
+bot = Discordrb::Bot.new token: 'x'
 
 bot.message(start_with: '!addelement') do |event|
   newelement = event.message.content.split(" ")
