@@ -1,6 +1,29 @@
+require_relative "price_manipulation"
+
 def download_file(link)
   File.open('dl_file.txt', "wb") do |file|
     file.write open(link).read
+  end
+end
+
+def sanatize()
+  pass = []
+  fail = []
+  File.readlines("dl_file.txt").each do |line|
+    line = line.chomp
+    if dupe_check(line) == true
+      puts "#{line} failed"
+      fail << line
+    else
+      puts "#{line} passed"
+      pass << line
+    end
+  end
+  if fail.length == 0
+    return 0,pass,fail
+  end
+  if fail.length > 0
+    return 1,fail,pass
   end
 end
 
